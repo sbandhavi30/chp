@@ -2,7 +2,7 @@
 
 **Manifest-driven context selection for multi-agent AI systems.**
 
-Each agent declares what it needs. CHP selects, scores, and routes only the relevant context — cutting token usage 40–70% without changing your agent code.
+Each agent declares what it needs. CHP selects, scores, and routes only the relevant context — cutting token usage 16-36%% without changing your agent code.
 
 ---
 
