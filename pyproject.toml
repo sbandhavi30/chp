@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chp"
+version = "0.1.0"
+description = "Context Handoff Protocol — manifest-driven context selection for multi-agent AI"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Naga Sai Bandhavi Sakhamuri", email = "bs258q@gmail.com" }
+]
+keywords = ["llm", "agents", "multi-agent", "context", "handoff", "crewai", "langgraph", "autogen"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pydantic>=2.0",
+    "numpy>=1.26",
+    "lancedb>=0.6",
+    "pyarrow>=14.0",
+    "filelock>=3.12",
+]
+
+[project.optional-dependencies]
+embeddings = ["sentence-transformers>=3.0"]
+llm = ["crewai>=0.80", "openai>=1.0"]
+redis = ["redis>=5.0"]
+postgres = ["psycopg2-binary>=2.9"]
+dynamodb = ["boto3>=1.34"]
+mongodb = ["pymongo>=4.6"]
+pii = ["presidio-analyzer>=2.0", "spacy>=3.0"]
+dev = ["pytest>=8.0", "pytest-cov", "hatchling"]
+all = [
+    "sentence-transformers>=3.0",
+    "crewai>=0.80", "openai>=1.0",
+    "redis>=5.0",
+    "psycopg2-binary>=2.9",
+    "boto3>=1.34",
+    "pymongo>=4.6",
+    "presidio-analyzer>=2.0", "spacy>=3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/NagaSaiBandhavi-Sakhamuri/chp"
+Repository = "https://github.com/NagaSaiBandhavi-Sakhamuri/chp"
+Issues = "https://github.com/NagaSaiBandhavi-Sakhamuri/chp/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["chp"]
+
+[tool.pytest.ini_options]
+testpaths = ["chp/tests/unit", "chp/tests/integration"]

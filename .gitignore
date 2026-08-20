@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+
+# Virtual environments
+.venv/
+.venv-*/
+venv/
+env/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.hypothesis/
+
+# LanceDB data (test artifacts)
+/tmp/chp_*/
+*.lance/
+*.lancedb/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Build
+*.pyc
