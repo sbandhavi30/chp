@@ -1,0 +1,56 @@
+{
+  "hops": 5,
+  "total_baseline_tokens": 4775,
+  "total_chp_tokens": 1500,
+  "overall_reduction_pct": 68.6,
+  "avg_must_carry_recall": 1.0,
+  "pii_leaked_any_hop": false,
+  "avg_scorer_latency_ms": 0.46,
+  "per_hop": [
+    {
+      "hop": 0,
+      "baseline_tokens": 955,
+      "chp_tokens": 300,
+      "reduction_pct": 68.6,
+      "must_carry_recall": 1.0,
+      "pii_leaked": false,
+      "scorer_latency_ms": 0.64
+    },
+    {
+      "hop": 1,
+      "baseline_tokens": 955,
+      "chp_tokens": 300,
+      "reduction_pct": 68.6,
+      "must_carry_recall": 1.0,
+      "pii_leaked": false,
+      "scorer_latency_ms": 0.43
+    },
+    {
+      "hop": 2,
+      "baseline_tokens": 955,
+      "chp_tokens": 300,
+      "reduction_pct": 68.6,
+      "must_carry_recall": 1.0,
+      "pii_leaked": false,
+      "scorer_latency_ms": 0.41
+    },
+    {
+      "hop": 3,
+      "baseline_tokens": 955,
+      "chp_tokens": 300,
+      "reduction_pct": 68.6,
+      "must_carry_recall": 1.0,
+      "pii_leaked": false,
+      "scorer_latency_ms": 0.42
+    },
+    {
+      "hop": 4,
+      "baseline_tokens": 955,
+      "chp_tokens": 300,
+      "reduction_pct": 68.6,
+      "must_carry_recall": 1.0,
+      "pii_leaked": false,
+      "scorer_latency_ms": 0.41
+    }
+  ]
+}
