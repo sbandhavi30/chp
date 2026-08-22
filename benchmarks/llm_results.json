@@ -1,0 +1,533 @@
+{
+  "model": "gpt-4o-mini",
+  "pool_chunks": 14,
+  "pool_tokens": 590,
+  "baseline": {
+    "method": "baseline",
+    "model": "gpt-4o-mini",
+    "agent_runs": [
+      {
+        "agent_id": "router",
+        "method": "baseline",
+        "prompt_tokens": 444,
+        "completion_tokens": 53,
+        "latency_ms": 6925.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "Routing decision: This is confirmed as a duplicate charge case for order ORD-4492. The user has requested a refund of $299, which is eligible for auto-approval under the duplicate charge policy. Therefore, I will route this ticket to billing for processing."
+      },
+      {
+        "agent_id": "auth",
+        "method": "baseline",
+        "prompt_tokens": 492,
+        "completion_tokens": 81,
+        "latency_ms": 1907.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "Auth clearance: The customer's identity has been verified as safe to proceed, with a confirmed auth status of verified, multi-factor authentication passed, and a low risk score associated with the account. All customer-related data complies with necessary regulations. \n\nDear user, your refund of $299 has been auto-approved for the duplicate charge related to your Pro Plan order on Aug 1, reference"
+      },
+      {
+        "agent_id": "policy",
+        "method": "baseline",
+        "prompt_tokens": 439,
+        "completion_tokens": 40,
+        "latency_ms": 1376.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "ORD-4492 qualifies for a refund under the policy due to a duplicate charge, which is auto-approved as it is under $500. Therefore, the refund request of $299 will be processed."
+      },
+      {
+        "agent_id": "compliance",
+        "method": "baseline",
+        "prompt_tokens": 438,
+        "completion_tokens": 51,
+        "latency_ms": 996.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "The case presents compliance issues as it is flagged for PCI, specifically due to the presence of a raw credit card number in the context. Although GDPR compliance is marked as okay, the handling of personally identifiable information (PII) raises concerns under PCI standards."
+      },
+      {
+        "agent_id": "research",
+        "method": "baseline",
+        "prompt_tokens": 435,
+        "completion_tokens": 63,
+        "latency_ms": 1631.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "To handle duplicate charge disputes, follow these steps from the SOP: First, verify the presence of an idempotency key for the charge requests. Then, check the charge IDs to confirm that they correspond to duplicate transactions. If the total amount is under $500, auto-approve the refund without requiring managerial approval."
+      },
+      {
+        "agent_id": "billing",
+        "method": "baseline",
+        "prompt_tokens": 444,
+        "completion_tokens": 56,
+        "latency_ms": 1464.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "Decision: APPROVED. The order ORD-4492 has been identified as a duplicate charge of $299, which falls under the auto-approve refund policy for amounts under $500. As the refund request complies with our guidelines, I will proceed with the approval for the refund."
+      },
+      {
+        "agent_id": "fraud",
+        "method": "baseline",
+        "prompt_tokens": 436,
+        "completion_tokens": 72,
+        "latency_ms": 1817.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "The fraud risk for this transaction is low, as the user's account is active and in good standing, the authentication status is verified with MFA passed, and there are no compliance issues apart from a flagged raw card in context. Additionally, the duplicate charge falls below the auto-approve threshold of $500, making it eligible for a straightforward refund process without further escalation."
+      },
+      {
+        "agent_id": "orchestrator",
+        "method": "baseline",
+        "prompt_tokens": 726,
+        "completion_tokens": 136,
+        "latency_ms": 2156.0,
+        "pii_in_prompt": true,
+        "chunk_count": 19,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl",
+          "out_billing",
+          "out_fraud",
+          "out_compliance",
+          "out_policy",
+          "out_research"
+        ],
+        "output": "Based on the inputs from the specialists, I am approving the refund for order ORD-4492. The billing specialist confirms that the order is a duplicate charge of $299, which is eligible for an auto-approve refund according to our policy for amounts under $500. The fraud risk is assessed as low, with the user's account being active and in good standing, and the compliance officer's concerns about PCI"
+      },
+      {
+        "agent_id": "escalation",
+        "method": "baseline",
+        "prompt_tokens": 522,
+        "completion_tokens": 74,
+        "latency_ms": 1242.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "No escalation is needed for order ORD-4492 as the refund of $299 is eligible for auto-approval under our duplicate charge policy for amounts under $500. The situation is resolved based on the specialists' inputs, and I will proceed with the approval of the refund.\n\nDear [User], your refund of $299 has been approved. Reference: ORD-4492"
+      },
+      {
+        "agent_id": "summarizer",
+        "method": "baseline",
+        "prompt_tokens": 520,
+        "completion_tokens": 69,
+        "latency_ms": 1332.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "Dear User, \n\nI am pleased to inform you that your refund of $299 for order ORD-4492 has been approved, as it qualifies for auto-approval under our duplicate charge policy. If you have any further questions or concerns, feel free to reach out. \n\nBest regards,  \n[Your Name]  \n[Your Position]  "
+      },
+      {
+        "agent_id": "auditor",
+        "method": "baseline",
+        "prompt_tokens": 435,
+        "completion_tokens": 71,
+        "latency_ms": 1952.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "The account history reveals a duplicate charge for order ORD-4492 on August 1, 2026, with a total amount of $299, which falls under the auto-approval policy for refunds. Additionally, there is a flagged issue regarding the raw credit card information in the compliance section, indicating potential vulnerabilities in data handling despite low overall fraud risk."
+      },
+      {
+        "agent_id": "code_reviewer",
+        "method": "baseline",
+        "prompt_tokens": 437,
+        "completion_tokens": 81,
+        "latency_ms": 2174.0,
+        "pii_in_prompt": true,
+        "chunk_count": 14,
+        "chunk_ids": [
+          "c_user",
+          "c_order",
+          "c_pii",
+          "c_auth",
+          "c_fraud",
+          "c_compliance",
+          "c_policy",
+          "c_request",
+          "c_debug",
+          "c_history",
+          "c_diff",
+          "c_kb",
+          "c_escalation",
+          "c_outcome_tpl"
+        ],
+        "output": "The diff indicates a fix for missing idempotency keys, which is crucial for preventing duplicate charges; however, the context suggests that there was a previous issue where a charge was processed twice, raising concerns about proper validation and handling of sensitive information like credit card data and Social Security numbers. Additionally, compliance flags show that raw card data was include"
+      }
+    ]
+  },
+  "chp": {
+    "method": "chp",
+    "model": "gpt-4o-mini",
+    "agent_runs": [
+      {
+        "agent_id": "router",
+        "method": "chp",
+        "prompt_tokens": 178,
+        "completion_tokens": 45,
+        "latency_ms": 1120.0,
+        "pii_in_prompt": false,
+        "chunk_count": 5,
+        "chunk_ids": [
+          "c_order",
+          "c_request",
+          "c_outcome_tpl",
+          "c_escalation",
+          "c_history"
+        ],
+        "output": "This is a confirmed duplicate charge case for order ORD-4492, as the customer has reported being charged twice for the Pro Plan on August 1. I will route this ticket to billing for further processing and refund approval."
+      },
+      {
+        "agent_id": "auth",
+        "method": "chp",
+        "prompt_tokens": 180,
+        "completion_tokens": 41,
+        "latency_ms": 899.0,
+        "pii_in_prompt": false,
+        "chunk_count": 4,
+        "chunk_ids": [
+          "c_user",
+          "c_auth",
+          "c_outcome_tpl",
+          "c_escalation"
+        ],
+        "output": "The customer's identity has been verified successfully, with an authenticated status of verified, and the multifactor authentication has passed. It is safe to proceed with routing the ticket to billing for further processing and refund approval."
+      },
+      {
+        "agent_id": "billing",
+        "method": "chp",
+        "prompt_tokens": 197,
+        "completion_tokens": 60,
+        "latency_ms": 1192.0,
+        "pii_in_prompt": false,
+        "chunk_count": 6,
+        "chunk_ids": [
+          "c_order",
+          "c_policy",
+          "c_outcome_tpl",
+          "c_escalation",
+          "c_kb",
+          "c_compliance"
+        ],
+        "output": "Decision: APPROVED. The duplicate charge for order ID ORD-4492 in the amount of $299 meets the criteria for automatic approval as it is under $500. According to the refund policy for the Pro Plan and the duplicate charge SOP, the refund can be processed without requiring additional management approval."
+      },
+      {
+        "agent_id": "fraud",
+        "method": "chp",
+        "prompt_tokens": 135,
+        "completion_tokens": 55,
+        "latency_ms": 1054.0,
+        "pii_in_prompt": false,
+        "chunk_count": 4,
+        "chunk_ids": [
+          "c_fraud",
+          "c_outcome_tpl",
+          "c_escalation",
+          "c_auth"
+        ],
+        "output": "Fraud risk assessment: The transaction appears to have a low fraud risk, with a fraud score of 0.12, a verified auth status, and a passed MFA. Since it is a duplicate charge under $500, it qualifies for auto-approval without managerial review."
+      },
+      {
+        "agent_id": "policy",
+        "method": "chp",
+        "prompt_tokens": 142,
+        "completion_tokens": 25,
+        "latency_ms": 890.0,
+        "pii_in_prompt": false,
+        "chunk_count": 4,
+        "chunk_ids": [
+          "c_order",
+          "c_policy",
+          "c_outcome_tpl",
+          "c_auth"
+        ],
+        "output": "Dear {name}, your refund of $299 has been auto-approved due to a duplicate charge. Reference: ORD-4492"
+      },
+      {
+        "agent_id": "compliance",
+        "method": "chp",
+        "prompt_tokens": 136,
+        "completion_tokens": 65,
+        "latency_ms": 1351.0,
+        "pii_in_prompt": false,
+        "chunk_count": 4,
+        "chunk_ids": [
+          "c_compliance",
+          "c_outcome_tpl",
+          "c_escalation",
+          "c_auth"
+        ],
+        "output": "Compliance status: There is a PCI compliance issue due to the flagged raw card information present in the context, which is not permissible. However, GDPR compliance is confirmed as 'ok' since no personal data violations are indicated.\n\nDear {name}, your refund of {amount} has been {status}. Reference: {order_id}"
+      },
+      {
+        "agent_id": "research",
+        "method": "chp",
+        "prompt_tokens": 98,
+        "completion_tokens": 53,
+        "latency_ms": 1234.0,
+        "pii_in_prompt": false,
+        "chunk_count": 3,
+        "chunk_ids": [
+          "c_kb",
+          "c_outcome_tpl",
+          "c_escalation"
+        ],
+        "output": "To handle duplicate charge disputes, first, verify the idempotency key associated with the charges. Next, check the charge IDs to confirm that they are indeed duplicates. If the disputed amount is less than $500, auto-approve the refund without needing manager approval."
+      },
+      {
+        "agent_id": "orchestrator",
+        "method": "chp",
+        "prompt_tokens": 379,
+        "completion_tokens": 130,
+        "latency_ms": 1943.0,
+        "pii_in_prompt": false,
+        "chunk_count": 9,
+        "chunk_ids": [
+          "c_order",
+          "c_outcome_tpl",
+          "c_escalation",
+          "c_kb",
+          "c_diff",
+          "c_history",
+          "c_debug",
+          "c_request",
+          "c_compliance"
+        ],
+        "output": "Final decision: REFUND APPROVED. The duplicate charge for order ID ORD-4492 in the amount of $299 qualifies for an automatic approval based on the established billing guidelines, as the refund amount is under the $500 threshold. Moreover, the fraud risk assessment indicates a low likelihood of fraud, supporting the rationale for processing the refund. However, there is a compliance concern with th"
+      },
+      {
+        "agent_id": "escalation",
+        "method": "chp",
+        "prompt_tokens": 250,
+        "completion_tokens": 64,
+        "latency_ms": 1108.0,
+        "pii_in_prompt": false,
+        "chunk_count": 5,
+        "chunk_ids": [
+          "c_order",
+          "c_escalation",
+          "c_outcome_tpl",
+          "c_kb",
+          "c_auth"
+        ],
+        "output": "No escalation is needed as the refund for order ID ORD-4492 in the amount of $299 has been approved automatically based on the established billing guidelines and falls under the $500 threshold. The compliance concern does not require management intervention given the low risk assessment and the proper handling of the duplicate charge according to the SOP."
+      },
+      {
+        "agent_id": "summarizer",
+        "method": "chp",
+        "prompt_tokens": 210,
+        "completion_tokens": 70,
+        "latency_ms": 1734.0,
+        "pii_in_prompt": false,
+        "chunk_count": 4,
+        "chunk_ids": [
+          "c_order",
+          "c_outcome_tpl",
+          "c_escalation",
+          "c_compliance"
+        ],
+        "output": "Subject: Confirmation of Your Refund\n\nDear Customer, \n\nWe are pleased to inform you that your refund of $299 for order ORD-4492 has been successfully processed due to a duplicate charge. If you have any further questions or require assistance, please feel free to reach out.\n\nThank you for your understanding.\n\nBest regards,  \n[Your Company]"
+      },
+      {
+        "agent_id": "auditor",
+        "method": "chp",
+        "prompt_tokens": 133,
+        "completion_tokens": 63,
+        "latency_ms": 1269.0,
+        "pii_in_prompt": false,
+        "chunk_count": 4,
+        "chunk_ids": [
+          "c_user",
+          "c_history",
+          "c_outcome_tpl",
+          "c_escalation"
+        ],
+        "output": "The account history for user_id: USR-8821 shows a single refund of $50 approved on 2026-07-15 and a billing issue resolved in May 2026. Given the lack of multiple refund requests or complaints within a short timeframe, no suspicious patterns have been identified at this time."
+      },
+      {
+        "agent_id": "code_reviewer",
+        "method": "chp",
+        "prompt_tokens": 98,
+        "completion_tokens": 60,
+        "latency_ms": 1182.0,
+        "pii_in_prompt": false,
+        "chunk_count": 3,
+        "chunk_ids": [
+          "c_diff",
+          "c_outcome_tpl",
+          "c_escalation"
+        ],
+        "output": "Security review: The handling of refund notifications in `outcome_template` should ensure that no sensitive information is exposed. Additionally, the auto-approval of refunds under $500 without managerial oversight raises the risk of fraudulent transactions; it is advisable to implement stricter validation or threshold checks to mitigate this risk."
+      }
+    ]
+  }
+}
