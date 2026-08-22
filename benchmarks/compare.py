@@ -25,6 +25,8 @@ from chp.engine.embedder import StubEmbedder
 from chp.engine.scorer import select_chunks
 from chp.ledger.memory_ledger import InMemoryLedger
 from chp.pii import RegexPIIFilter
+from chp.observability import SessionTokenTracker
+import chp
 
 
 # ── Synthetic pipeline definition ─────────────────────────────────────────────
@@ -193,6 +195,9 @@ def _run_pipeline(num_hops: int) -> PipelineResult:
     pii_filter = RegexPIIFilter(log_detections=False)
     hop_results: list[HopResult] = []
 
+    tracker = SessionTokenTracker("benchmark-session")
+    chp.set_metrics_hook(tracker.on_event)
+
     for hop in range(num_hops):
         pool = _make_chunk_pool(hop)
         baseline_tokens = sum(c.token_cost for c in pool)
@@ -227,6 +232,9 @@ def _run_pipeline(num_hops: int) -> PipelineResult:
             pii_leaked=pii_leaked,
             scorer_latency_ms=round(elapsed_ms, 2),
         ))
+
+    session_summary = tracker.close()
+    chp.set_metrics_hook(None)
 
     total_baseline = sum(h.baseline_tokens for h in hop_results)
     total_chp = sum(h.chp_tokens for h in hop_results)
@@ -278,6 +286,14 @@ def _print_results(r: PipelineResult) -> None:
             f"{h.reduction_pct:>9.1f}% {h.must_carry_recall*100:>7.1f}% "
             f"{pii:>6} {h.scorer_latency_ms:>7.2f}"
         )
+    print()
+    print()
+    print("  SessionTokenTracker summary (as seen by your metrics hook):")
+    print(f"    session_id:             benchmark-session")
+    print(f"    hops tracked:           {r.hops}")
+    print(f"    total_tokens_in:        {r.total_baseline_tokens:,}")
+    print(f"    total_tokens_out:       {r.total_chp_tokens:,}")
+    print(f"    overall_reduction_pct:  {r.overall_reduction_pct}%")
     print()
     print("  Note: reduction varies by pipeline shape, chunk pool composition,")
     print("  and manifest specificity. Run on your own pipeline for real numbers.")

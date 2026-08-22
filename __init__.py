@@ -2,7 +2,7 @@ from chp.schema.context_manifest import ContextManifest, ContextRequirements
 from chp.schema.rationale_envelope import RationaleEnvelope, AnnotatedChunk
 from chp.templates import ManifestTemplates
 from chp.inference import infer_manifest
-from chp.observability import set_metrics_hook, CHPEvent
+from chp.observability import set_metrics_hook, CHPEvent, SessionTokenTracker
 from chp.ledger.base import LedgerBackend
 from chp.ledger.lancedb_ledger import LanceDBLedger, CHPLedger, WriteLimiter
 from chp.ledger.sqlite_ledger import SQLiteLedger
@@ -32,7 +32,7 @@ __all__ = [
     # Templates + inference
     "ManifestTemplates", "infer_manifest",
     # Observability
-    "set_metrics_hook", "CHPEvent",
+    "set_metrics_hook", "CHPEvent", "SessionTokenTracker",
     # Ledger backends (always available)
     "LedgerBackend",
     "LanceDBLedger", "CHPLedger",   # CHPLedger = backward-compat alias

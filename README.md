@@ -438,6 +438,44 @@ All events also emit a structured JSON log line via Python's standard `logging` 
 
 ---
 
+## Per-Session Token Reporting
+
+`SessionTokenTracker` accumulates `TOKEN_REDUCTION` events across all hops in a session and emits a final summary — giving users "X% on your pipeline" rather than a benchmark claim.
+
+```python
+import chp
+from chp import SessionTokenTracker
+
+tracker = SessionTokenTracker("session-abc")
+chp.set_metrics_hook(tracker.on_event)
+
+# ... run your pipeline (each select_chunks call fires TOKEN_REDUCTION) ...
+
+summary = tracker.close()
+# {
+#   "session_id": "session-abc",
+#   "hops": 5,
+#   "total_tokens_in": 4775,
+#   "total_tokens_out": 1500,
+#   "overall_reduction_pct": 68.6
+# }
+```
+
+Chain with an existing Prometheus/Datadog hook — tracker forwards all events upstream:
+
+```python
+tracker = SessionTokenTracker("s1", upstream_hook=my_prometheus_hook)
+chp.set_metrics_hook(tracker.on_event)
+```
+
+Reset between sessions:
+
+```python
+tracker.reset()  # reuse for next session
+```
+
+---
+
 ## Scorer Weights
 
 ```python
